@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Empire Digital</title>
+    <meta name="description" content="Complete your purchase">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="Checkout — Empire Digital">
+    <meta property="og:description" content="Complete your purchase">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">Empire Digital</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products/">Products</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/checkout.html" class="nav-cta">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Checkout</h1>
+        <p>You are one step away from leveling up.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="checkout-grid">
+            <!-- Order Summary -->
+            <div class="checkout-summary">
+                <h2>Order Summary</h2>
+                <div id="checkoutItems" class="checkout-items">
+                    <!-- Populated by JS from cart -->
+                    <div class="empty-state" id="emptyCart">
+                        <p>Your cart is empty. <a href="/products/">Browse products</a></p>
+                    </div>
+                </div>
+                <div class="checkout-total" id="checkoutTotal" style="display:none;">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="subtotalAmount">$0.00</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total</span>
+                        <span id="totalAmount">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="checkout-payment">
+                <h2>Payment</h2>
+
+                <div class="payment-option">
+                    <h3>Option 1: Pay with Crypto (USDC on Polygon)</h3>
+                    <p>Send <strong>USDC</strong> on the <strong>Polygon</strong> network to the address below.</p>
+                    <div class="wallet-address-box">
+                        <code id="walletAddress"></code>
+                        <button class="btn btn-sm copy-address-btn" onclick="copyAddress()">Copy Address</button>
+                    </div>
+                    <div class="crypto-instructions">
+                        <p><strong>Important:</strong></p>
+                        <ul>
+                            <li>Send USDC on <strong>Polygon network only</strong></li>
+                            <li>Send the exact amount shown in your total</li>
+                            <li>Transaction confirms in ~2 seconds</li>
+                            <li>Near-zero gas fees on Polygon</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div class="payment-confirmation">
+                    <h3>After Payment</h3>
+                    <p>Once you have sent payment, click below to confirm and get your download.</p>
+                    <input type="email" id="buyerEmail" placeholder="Your email for receipt" class="form-input">
+                    <button class="btn btn-accent btn-lg btn-block" id="confirmPaymentBtn" onclick="confirmPayment()">
+                        I Have Sent Payment &mdash; Get My Download
+                    </button>
+                </div>
+
+                <!-- Download area (shown after confirmation) -->
+                <div class="download-area" id="downloadArea" style="display:none;">
+                    <div class="download-success">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><circle cx="12" cy="12" r="10" stroke="#00ff88" stroke-width="2" fill="none"/><path d="M8 12l3 3 5-5" stroke="#00ff88" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <h3>Payment Confirmed!</h3>
+                        <p>Thank you for your purchase. Your downloads are ready.</p>
+                        <div id="downloadLinks"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Empire Digital</h3>
+                <p>Premium digital products built for people who demand the best.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="/products/">All Products</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay in the Loop</h4>
+                <p>Get exclusive drops and early access.</p>
+                <form class="footer-form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
+        </div>
+    </div>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html>

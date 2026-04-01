@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products — Empire Digital</title>
+    <meta name="description" content="Browse all premium products from Empire Digital">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="Products — Empire Digital">
+    <meta property="og:description" content="Browse all premium products from Empire Digital">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">Empire Digital</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products/" class="active">Products</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/checkout.html" class="nav-cta">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1>All Products</h1>
+        <p>Premium digital products. No fluff. Pure value.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="AI Tools">Ai Tools</button><button class="filter-btn" data-filter="Templates">Templates</button>
+        </div>
+        <div class="product-grid">
+
+            <div class="product-card" data-category="Templates">
+                <div class="product-card-img-placeholder"><span>T</span></div>
+                <div class="product-card-body">
+                    <div class="product-category-tag">Templates</div>
+                    <h3>The Grinder Dashboard</h3>
+                    <p>Premium Notion template for hustlers. Track projects, income, goals, and daily habits in one powerful dashboard.</p>
+                    <div class="product-card-footer">
+                        <span class="product-price">$9.99</span>
+                        <a href="/products/grinder-dashboard.html" class="btn btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="AI Tools">
+                <div class="product-card-img-placeholder"><span>A</span></div>
+                <div class="product-card-body">
+                    <div class="product-category-tag">Ai Tools</div>
+                    <h3>AI Prompt Arsenal</h3>
+                    <p>200+ battle-tested AI prompts for marketing, sales, content, and business. Stop guessing, start converting.</p>
+                    <div class="product-card-footer">
+                        <span class="product-price">$14.99</span>
+                        <a href="/products/ai-prompt-arsenal.html" class="btn btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Empire Digital</h3>
+                <p>Premium digital products built for people who demand the best.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="/products/">All Products</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay in the Loop</h4>
+                <p>Get exclusive drops and early access.</p>
+                <form class="footer-form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
+        </div>
+    </div>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html>
