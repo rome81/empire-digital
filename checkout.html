@@ -52,8 +52,15 @@
             </div>
         </div>
 
+        <div class="payment-box" style="margin-bottom:1.5rem;">
+            <h3>💳 Pay with Card</h3>
+            <p style="color:#888;margin-bottom:1rem;">Visa, Mastercard, Amex — processed securely by Stripe</p>
+            <a id="stripeLink" href="#" class="btn-confirm" style="display:inline-block;text-decoration:none;width:100%;text-align:center;" target="_blank">Pay with Card</a>
+            <p style="color:#444;font-size:0.75rem;margin-top:0.5rem;">SSL encrypted · PCI compliant · 3D Secure</p>
+        </div>
+
         <div class="payment-box">
-            <h3>💳 Pay with Crypto (USDC)</h3>
+            <h3>₿ Or Pay with Crypto (USDC)</h3>
             <div class="crypto-section">
                 <span class="network-badge">Polygon Network</span>
                 <p class="crypto-label">Send USDC to this address:</p>
@@ -106,11 +113,19 @@
             'ai-prompt-arsenal': 'AI Prompt Arsenal — 200+ Prompts',
         };
 
+        // Stripe payment links
+        const stripeLinks = {
+            'grinder-dashboard': 'https://buy.stripe.com/00wfZhepo1wd26G3SI7N600',
+            'ai-prompt-arsenal': 'https://buy.stripe.com/bJebJ1dlk6QxcLkbla7N601',
+        };
+
         // Set display
         document.getElementById('productName').textContent = names[product] || product;
         document.getElementById('productPrice').textContent = '$' + price.toFixed(2);
         document.getElementById('totalPrice').textContent = '$' + price.toFixed(2);
         document.getElementById('sendAmount').textContent = price.toFixed(2);
+        document.getElementById('stripeLink').href = stripeLinks[product] || '#';
+        document.getElementById('stripeLink').textContent = 'Pay $' + price.toFixed(2) + ' with Card';
 
         function copyAddr() {
             navigator.clipboard.writeText('0x0c9f08e8789b8918F45E380340ac0F908B02DBCa');
