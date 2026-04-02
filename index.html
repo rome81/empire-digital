@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ABCD232DSE"></script>
@@ -22,13 +21,1097 @@
     <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','9127380912836192');fbq('track','PageView');</script>
 
     <!-- TikTok Pixel -->
+    <script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e+"-"+n]=+new Date;var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('CFH83AJC77UUUGLE2TJG');ttq.page();}(window,document,'ttq');</script>
+
     <!-- Gumroad Overlay -->
     <script src="https://gumroad.com/js/gumroad.js"></script>
 
-    <script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e+"-"+n]=+new Date;var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load('CFH83AJC77UUUGLE2TJG');ttq.page();}(window,document,'ttq');</script>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.92);
+            border-bottom: 1px solid #1a1a1a;
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .nav-logo:hover {
+            color: #00ff88;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu li a {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-cta {
+            background: #00ff88 !important;
+            color: #000 !important;
+            font-weight: 700 !important;
+            padding: 8px 20px !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-cta:hover {
+            background: #00e67a !important;
+            color: #000 !important;
+        }
+
+        .cart-count {
+            background: #000;
+            color: #00ff88;
+            font-size: 0.7rem;
+            font-weight: 800;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0, 100, 255, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, #0a0a0a, transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #00ff88;
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-green {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.7;
+        }
+
+        .hero-social-proof {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 56px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #00e67a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        .btn-outline:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 16px 36px;
+            font-size: 1.05rem;
+            border-radius: 12px;
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            background: #00ff88;
+            color: #000;
+            border-radius: 8px;
+        }
+
+        .btn-sm:hover {
+            background: #00e67a;
+            transform: translateY(-1px);
+        }
+
+        /* ===== HERO STATS ===== */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 20px 28px;
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid #1f1f1f;
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            border-color: rgba(0, 255, 136, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #00ff88;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-stat span {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-dark {
+            background: #0f0f0f;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .section-cta {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        /* ===== PRODUCT CARDS ===== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #333;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 255, 136, 0.05);
+        }
+
+        .product-card-image {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .product-card-image .emoji {
+            font-size: 4.5rem;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+        }
+
+        .product-card-image .glow {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+
+        .product-card-image.dashboard {
+            background: linear-gradient(135deg, #0d2137 0%, #1a3a5c 40%, #00ff88 200%);
+        }
+
+        .product-card-image.dashboard .glow {
+            background: radial-gradient(circle at 70% 30%, rgba(0, 255, 136, 0.15) 0%, transparent 60%);
+        }
+
+        .product-card-image.ai-prompts {
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 40%, #6c5ce7 200%);
+        }
+
+        .product-card-image.ai-prompts .glow {
+            background: radial-gradient(circle at 30% 70%, rgba(108, 92, 231, 0.2) 0%, transparent 60%);
+        }
+
+        .product-card-body {
+            padding: 28px;
+        }
+
+        .product-category-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .product-card-body h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .product-card-body p {
+            color: #888;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .product-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #00ff88;
+            letter-spacing: -0.5px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: #1a1a1a;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 255, 136, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-stars {
+            color: #f5a623;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card > p {
+            color: #ccc;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #000;
+        }
+
+        .testimonial-author div strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .testimonial-author div span {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* ===== TRUST BADGES ===== */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 56px;
+        }
+
+        .trust-badge {
+            text-align: center;
+            padding: 20px 28px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+
+        .trust-badge:hover {
+            border-color: rgba(0, 255, 136, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .trust-badge-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #00ff88;
+        }
+
+        .trust-badge-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        /* ===== GUARANTEE ===== */
+        .guarantee-box {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 48px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.05);
+        }
+
+        .guarantee-box .icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        .guarantee-box h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .guarantee-box p {
+            color: #888;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            padding: 24px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #333;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .faq-question h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(0, 255, 136, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #00ff88;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, margin-top 0.35s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            margin-top: 12px;
+        }
+
+        .faq-answer p {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer a {
+            color: #00ff88;
+        }
+
+        /* ===== EMAIL CAPTURE ===== */
+        .section-accent {
+            background: linear-gradient(135deg, #0d1a10 0%, #0a0a0a 50%, #0a1a14 100%);
+            border-top: 1px solid rgba(0, 255, 136, 0.1);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .email-capture {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .email-capture h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .email-capture > p {
+            color: #888;
+            margin-bottom: 28px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 12px;
+            max-width: 460px;
+            margin: 0 auto 16px;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 14px 20px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .email-form input:focus {
+            border-color: #00ff88;
+        }
+
+        .email-form input::placeholder {
+            color: #555;
+        }
+
+        .email-form button {
+            padding: 14px 28px;
+            background: #00ff88;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .email-form button:hover {
+            background: #00e67a;
+            transform: translateY(-1px);
+        }
+
+        .email-note {
+            font-size: 0.82rem;
+            color: #555;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+            padding: 64px 0 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-brand p {
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: #00ff88;
+            font-size: 1.2rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-social a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-links h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #888;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: #00ff88;
+        }
+
+        .footer-newsletter h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .footer-newsletter p {
+            color: #888;
+            font-size: 0.88rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .footer-form input {
+            flex: 1;
+            padding: 10px 16px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.88rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .footer-form input:focus {
+            border-color: #00ff88;
+        }
+
+        .footer-form input::placeholder {
+            color: #555;
+        }
+
+        .footer-form button {
+            padding: 10px 20px;
+            background: #00ff88;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .footer-form button:hover {
+            background: #00e67a;
+        }
+
+        .footer-trust {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .footer-trust span {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 24px 0;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        .footer-bottom p {
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #111;
+                flex-direction: column;
+                padding: 80px 32px 32px;
+                gap: 4px;
+                transition: right 0.35s ease;
+                border-left: 1px solid #1a1a1a;
+            }
+
+            .nav-menu.open {
+                right: 0;
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: 12px 16px;
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-stats {
+                gap: 12px;
+            }
+
+            .hero-stat {
+                padding: 14px 18px;
+            }
+
+            .hero-stat strong {
+                font-size: 1.2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                gap: 12px;
+            }
+
+            .trust-badge {
+                padding: 14px 18px;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .guarantee-box {
+                padding: 32px 24px;
+            }
+
+            .section {
+                padding: 64px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 16px 60px;
+            }
+
+            .hero h1 {
+                font-size: 1.85rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stat {
+                width: 100%;
+                max-width: 220px;
+            }
+        }
+    </style>
 </head>
 <body>
 
+<!-- Navbar -->
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="/" class="nav-logo">Empire Digital</a>
@@ -50,9 +1133,9 @@
     <div class="hero-content">
         <div class="hero-badge">Premium Digital Products</div>
         <h1>Premium Digital Products for Hustlers</h1>
-        <p style="font-size:1.4rem;font-weight:700;color:#00ff88;margin-bottom:12px;letter-spacing:-0.5px;">Built different.</p>
+        <p class="hero-green">Built different.</p>
         <p class="hero-subtitle">Stop settling for mediocre. Get tools, templates, and resources built by people who actually know what they are doing.</p>
-        <p style="font-size:0.95rem;color:#888;margin-bottom:24px;">As seen by 500+ customers worldwide</p>
+        <p class="hero-social-proof">As seen by 500+ customers worldwide</p>
         <div class="hero-actions">
             <a href="/products/" class="btn btn-primary btn-lg">Browse Products</a>
             <a href="#featured" class="btn btn-outline btn-lg">See What's Hot</a>
@@ -68,16 +1151,15 @@
 <!-- Featured Products -->
 <section class="section" id="featured">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header animate-on-scroll">
             <h2>Featured Products</h2>
             <p>Hand-picked. Premium quality. No filler.</p>
         </div>
         <div class="product-grid">
-
-            <div class="product-card">
-                <div style="width:100%;height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0d2137 0%,#1a3a5c 40%,#00ff88 200%);border-bottom:1px solid #2a2a2a;position:relative;overflow:hidden;">
-                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 70% 30%,rgba(0,255,136,0.15) 0%,transparent 60%);"></div>
-                    <span style="font-size:4.5rem;position:relative;z-index:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));">📊</span>
+            <div class="product-card animate-on-scroll">
+                <div class="product-card-image dashboard">
+                    <div class="glow"></div>
+                    <span class="emoji">&#x1F4CA;</span>
                 </div>
                 <div class="product-card-body">
                     <div class="product-category-tag">Notion Template</div>
@@ -89,10 +1171,10 @@
                     </div>
                 </div>
             </div>
-            <div class="product-card">
-                <div style="width:100%;height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a0a2e 0%,#2d1b69 40%,#6c5ce7 200%);border-bottom:1px solid #2a2a2a;position:relative;overflow:hidden;">
-                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 70%,rgba(108,92,231,0.2) 0%,transparent 60%);"></div>
-                    <span style="font-size:4.5rem;position:relative;z-index:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));">🤖</span>
+            <div class="product-card animate-on-scroll">
+                <div class="product-card-image ai-prompts">
+                    <div class="glow"></div>
+                    <span class="emoji">&#x1F916;</span>
                 </div>
                 <div class="product-card-body">
                     <div class="product-category-tag">AI Prompts</div>
@@ -111,15 +1193,15 @@
     </div>
 </section>
 
-<!-- Social Proof / Testimonials -->
+<!-- Testimonials -->
 <section class="section section-dark">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header animate-on-scroll">
             <h2>What People Are Saying</h2>
             <p>Real results from real customers.</p>
         </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <div class="testimonial-card animate-on-scroll">
                 <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>"This dashboard changed how I manage my freelance business. Worth 10x the price."</p>
                 <div class="testimonial-author">
@@ -127,7 +1209,7 @@
                     <div><strong>Sarah K.</strong><span>Freelancer</span></div>
                 </div>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card animate-on-scroll">
                 <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>"200 prompts that actually work. I've tried free ones — these are on another level."</p>
                 <div class="testimonial-author">
@@ -135,7 +1217,7 @@
                     <div><strong>Marcus T.</strong><span>Marketing Director</span></div>
                 </div>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card animate-on-scroll">
                 <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p>"Best investment I made this quarter. Paid for itself in the first week."</p>
                 <div class="testimonial-author">
@@ -144,35 +1226,36 @@
                 </div>
             </div>
         </div>
+
         <!-- Trust Badges -->
-        <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:48px;">
-            <div style="text-align:center;padding:16px 24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <div style="font-size:1.5rem;font-weight:800;color:#00ff88;">500+</div>
-                <div style="font-size:0.8rem;color:#888;margin-top:4px;">Customers</div>
+        <div class="trust-badges">
+            <div class="trust-badge animate-on-scroll">
+                <div class="trust-badge-value">500+</div>
+                <div class="trust-badge-label">Customers</div>
             </div>
-            <div style="text-align:center;padding:16px 24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <div style="font-size:1.5rem;font-weight:800;color:#00ff88;">4.9/5</div>
-                <div style="font-size:0.8rem;color:#888;margin-top:4px;">Rating</div>
+            <div class="trust-badge animate-on-scroll">
+                <div class="trust-badge-value">4.9/5</div>
+                <div class="trust-badge-label">Rating</div>
             </div>
-            <div style="text-align:center;padding:16px 24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <div style="font-size:1.5rem;font-weight:800;color:#00ff88;">30-Day</div>
-                <div style="font-size:0.8rem;color:#888;margin-top:4px;">Guarantee</div>
+            <div class="trust-badge animate-on-scroll">
+                <div class="trust-badge-value">30-Day</div>
+                <div class="trust-badge-label">Guarantee</div>
             </div>
-            <div style="text-align:center;padding:16px 24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <div style="font-size:1.5rem;font-weight:800;color:#00ff88;">Instant</div>
-                <div style="font-size:0.8rem;color:#888;margin-top:4px;">Download</div>
+            <div class="trust-badge animate-on-scroll">
+                <div class="trust-badge-value">Instant</div>
+                <div class="trust-badge-label">Download</div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Money-Back Guarantee -->
-<section class="section" style="padding:80px 0;">
+<section class="section">
     <div class="container">
-        <div style="max-width:700px;margin:0 auto;text-align:center;padding:48px;background:#1a1a1a;border-radius:20px;border:1px solid rgba(0,255,136,0.2);box-shadow:0 8px 40px rgba(0,255,136,0.05);">
-            <div style="font-size:3.5rem;margin-bottom:16px;">🛡️</div>
-            <h2 style="font-size:2rem;font-weight:800;margin-bottom:16px;letter-spacing:-1px;">30-Day Money-Back Guarantee</h2>
-            <p style="color:#888;font-size:1.05rem;line-height:1.8;">If you're not completely satisfied, we'll refund every penny. No questions asked. We're that confident in our products.</p>
+        <div class="guarantee-box animate-on-scroll">
+            <div class="icon">&#x1F6E1;&#xFE0F;</div>
+            <h2>30-Day Money-Back Guarantee</h2>
+            <p>If you're not completely satisfied, we'll refund every penny. No questions asked. We're that confident in our products.</p>
         </div>
     </div>
 </section>
@@ -180,30 +1263,55 @@
 <!-- FAQ -->
 <section class="section section-dark">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header animate-on-scroll">
             <h2>Frequently Asked Questions</h2>
             <p>Got questions? We've got answers.</p>
         </div>
-        <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:16px;">
-            <div style="padding:24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff;">What format are the products?</h3>
-                <p style="color:#888;font-size:0.95rem;line-height:1.7;">Digital download with instant access. You'll get your files immediately after purchase.</p>
+        <div class="faq-list">
+            <div class="faq-item open animate-on-scroll">
+                <div class="faq-question">
+                    <h3>What format are the products?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Digital download with instant access. You'll get your files immediately after purchase.</p>
+                </div>
             </div>
-            <div style="padding:24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff;">Do I get updates?</h3>
-                <p style="color:#888;font-size:0.95rem;line-height:1.7;">Yes, lifetime free updates. When we improve the product, you get the new version at no extra cost.</p>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>Do I get updates?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, lifetime free updates. When we improve the product, you get the new version at no extra cost.</p>
+                </div>
             </div>
-            <div style="padding:24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff;">Can I get a refund?</h3>
-                <p style="color:#888;font-size:0.95rem;line-height:1.7;">Yes, we offer a 30-day money-back guarantee. If you're not satisfied, we'll refund you — no questions asked.</p>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>Can I get a refund?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer a 30-day money-back guarantee. If you're not satisfied, we'll refund you -- no questions asked.</p>
+                </div>
             </div>
-            <div style="padding:24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff;">How do I pay?</h3>
-                <p style="color:#888;font-size:0.95rem;line-height:1.7;">Credit card (Stripe) or crypto (USDC). Both options are available at checkout.</p>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>How do I pay?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Credit card (Stripe) or crypto (USDC). Both options are available at checkout.</p>
+                </div>
             </div>
-            <div style="padding:24px;background:#1a1a1a;border-radius:12px;border:1px solid #2a2a2a;">
-                <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff;">Need help?</h3>
-                <p style="color:#888;font-size:0.95rem;line-height:1.7;">Email us at <a href="mailto:jeromecrawford42@gmail.com" style="color:#00ff88;">jeromecrawford42@gmail.com</a> and we'll get back to you within 24 hours.</p>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>Need help?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>Email us at <a href="mailto:jeromecrawford42@gmail.com">jeromecrawford42@gmail.com</a> and we'll get back to you within 24 hours.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -212,7 +1320,7 @@
 <!-- Email Capture -->
 <section class="section section-accent">
     <div class="container">
-        <div class="email-capture">
+        <div class="email-capture animate-on-scroll">
             <h2>Get Exclusive Drops First</h2>
             <p>Join the inner circle. Early access, exclusive discounts, and free resources delivered to your inbox.</p>
             <form class="email-form" action="#" method="POST">
@@ -224,16 +1332,16 @@
     </div>
 </section>
 
-
+<!-- Footer -->
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h3>Empire Digital</h3>
                 <p>Premium digital products built for people who demand the best.</p>
-                <div class="footer-social" style="margin-top:1rem;display:flex;gap:1rem;">
-                    <a href="https://x.com/JeromeCrawford5" target="_blank" rel="noopener" style="color:#00ff88;text-decoration:none;font-size:1.2rem;" title="Twitter/X">𝕏</a>
-                    <a href="https://crawfordian7.gumroad.com" target="_blank" rel="noopener" style="color:#00ff88;text-decoration:none;font-size:1.2rem;" title="Gumroad">🛒</a>
+                <div class="footer-social">
+                    <a href="https://x.com/JeromeCrawford5" target="_blank" rel="noopener" title="Twitter/X">&#x1D54F;</a>
+                    <a href="https://crawfordian7.gumroad.com" target="_blank" rel="noopener" title="Gumroad">&#x1F6D2;</a>
                 </div>
             </div>
             <div class="footer-links">
@@ -243,7 +1351,7 @@
                     <li><a href="/blog/">Blog</a></li>
                     <li><a href="/about.html">About</a></li>
                 </ul>
-                <h4 style="margin-top:20px;">Legal</h4>
+                <h4 style="margin-top:24px;">Legal</h4>
                 <ul>
                     <li><a href="/privacy.html">Privacy Policy</a></li>
                     <li><a href="/terms.html">Terms of Service</a></li>
@@ -258,18 +1366,65 @@
                 </form>
             </div>
         </div>
-        <!-- Trust/Security Badges -->
-        <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #2a2a2a;">
-            <span style="color:#888;font-size:0.85rem;">🔒 SSL Secured</span>
-            <span style="color:#888;font-size:0.85rem;">💳 Stripe Payments</span>
-            <span style="color:#888;font-size:0.85rem;">₿ Crypto Accepted</span>
-            <span style="color:#888;font-size:0.85rem;">📧 24hr Support</span>
+        <div class="footer-trust">
+            <span>&#x1F512; SSL Secured</span>
+            <span>&#x1F4B3; Stripe Payments</span>
+            <span>&#x20BF; Crypto Accepted</span>
+            <span>&#x1F4E7; 24hr Support</span>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
         </div>
     </div>
 </footer>
-<script src="/js/main.js"></script>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('open');
+});
+
+// Close menu on link click
+navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+    });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('open');
+    });
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+});
+</script>
+
 </body>
 </html>
