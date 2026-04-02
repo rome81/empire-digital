@@ -12,24 +12,76 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
+a { color: #00ff88; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+nav { background: #111; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+nav a { color: #fff; margin-left: 1.5rem; font-weight: 600; }
+nav .logo { color: #00ff88; font-size: 1.2rem; font-weight: 700; margin-left: 0; }
+h1, h2, h3 { color: #fff; }
+h1 { font-size: 2rem; margin: 2rem 0 1rem; }
+h2 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; color: #00ff88; }
+.btn { display: inline-block; padding: 0.75rem 1.5rem; background: #00ff88; color: #0a0a0a; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.btn:hover { background: #00cc6a; text-decoration: none; }
+.product-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; margin: 1rem 0; }
+.product-card h3 { padding: 1rem 1.5rem 0; }
+.product-card p { padding: 0 1.5rem; color: #888; }
+.product-card .footer { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.price { color: #00ff88; font-size: 1.3rem; font-weight: 700; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.back { display: inline-block; margin: 2rem 0; color: #00ff88; }
+footer { background: #111; padding: 2rem; text-align: center; color: #666; margin-top: 3rem; border-top: 1px solid #222; }
+footer a { color: #00ff88; }
+.product-hero { padding: 3rem 0 2rem; }
+.product-hero h1 { margin-top: 0; }
+.product-category-tag { display: inline-block; background: #1a1a1a; color: #00ff88; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; border: 1px solid #2a2a2a; }
+.product-description { color: #aaa; font-size: 1.1rem; margin: 1rem 0; }
+.product-price-large { color: #00ff88; font-size: 2rem; font-weight: 800; }
+.product-price-original { color: #666; text-decoration: line-through; margin-left: 0.5rem; }
+.product-discount-badge { background: #00ff88; color: #0a0a0a; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; }
+.product-actions { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.product-actions .btn { text-align: center; }
+.product-guarantees { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; color: #888; font-size: 0.85rem; }
+.guarantee-item { display: flex; align-items: center; gap: 0.4rem; }
+.guarantee-item svg { color: #00ff88; }
+.features-list { list-style: none; margin: 1rem 0; }
+.features-list li { padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+.check-icon { width: 20px; height: 20px; color: #00ff88; flex-shrink: 0; }
+.product-details-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.sidebar-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+.sidebar-card h4 { color: #fff; margin-bottom: 1rem; }
+.detail-list { list-style: none; }
+.detail-list li { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #222; color: #aaa; }
+.section-dark { background: #111; padding: 3rem 0; margin-top: 2rem; }
+.section-header { text-align: center; margin-bottom: 2rem; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.testimonial-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 1.5rem; }
+.testimonial-stars { color: #f5a623; margin-bottom: 0.75rem; }
+.testimonial-card p { color: #ccc; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; }
+.testimonial-avatar { width: 36px; height: 36px; background: #00ff88; color: #0a0a0a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.testimonial-author span { display: block; color: #888; font-size: 0.8rem; }
+.product-hero-img-placeholder { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.product-hero-img-placeholder span { font-size: 4rem; font-weight: 800; color: #00ff88; }
+.product-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+@media (max-width: 768px) {
+    .product-hero-grid, .product-details-grid { grid-template-columns: 1fr; }
+    nav { flex-wrap: wrap; gap: 0.5rem; }
+}
+    </style>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "AI Prompt Arsenal", "description": "200+ battle-tested AI prompts for marketing, sales, content, and business. Stop guessing, start converting.", "offers": {"@type": "Offer", "price": "14.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}}</script>
 </head>
 <body>
 
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="/" class="nav-logo">Empire Digital</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/products/" class="active">Products</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/checkout.html" class="nav-cta">Cart <span class="cart-count" id="cartCount">0</span></a></li>
-        </ul>
+<nav>
+    <a href="/empire-digital/" class="logo">Empire Digital</a>
+    <div>
+        <a href="/empire-digital/products/">Products</a>
+        <a href="/empire-digital/blog/">Blog</a>
+        <a href="/empire-digital/about.html">About</a>
     </div>
 </nav>
 
@@ -40,7 +92,7 @@
                 <div class="product-hero-img-placeholder"><span>A</span></div>
             </div>
             <div class="product-hero-info">
-                <div class="product-category-tag">Ai Tools</div>
+                <div class="product-category-tag">AI Tools</div>
                 <h1>AI Prompt Arsenal</h1>
                 <p class="product-description">200+ battle-tested AI prompts for marketing, sales, content, and business. Stop guessing, start converting.</p>
                 <div class="product-price-block">
@@ -49,14 +101,7 @@
                     <span class="product-discount-badge">50% OFF</span>
                 </div>
                 <div class="product-actions">
-                    <button class="btn btn-primary btn-lg btn-block add-to-cart-btn"
-                            data-name="AI Prompt Arsenal"
-                            data-slug="ai-prompt-arsenal"
-                            data-price="14.99"
-                            data-image="">
-                        Add to Cart
-                    </button>
-                    <a href="/checkout.html?product=ai-prompt-arsenal&price=14.99" class="btn btn-accent btn-lg btn-block">Buy Now — $14.99</a>
+                    <a href="/empire-digital/checkout.html?product=ai-prompt-arsenal&price=14.99" class="btn">Buy Now — $14.99</a>
                 </div>
                 <div class="product-guarantees">
                     <div class="guarantee-item">
@@ -87,7 +132,11 @@
                 </div>
                 <h3>What You Get</h3>
                 <ul class="features-list">
-                    <li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>200+ prompts</li><li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Marketing category</li><li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Sales scripts</li><li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Content ideas</li><li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Copy/paste ready</li>
+                    <li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>200+ prompts</li>
+                    <li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Marketing category</li>
+                    <li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Sales scripts</li>
+                    <li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Content ideas</li>
+                    <li><svg viewBox="0 0 24 24" class="check-icon"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Copy/paste ready</li>
                 </ul>
             </div>
             <div class="product-details-sidebar">
@@ -110,7 +159,7 @@
 </section>
 
 <!-- Reviews -->
-<section class="section section-dark">
+<section class="section-dark">
     <div class="container">
         <div class="section-header">
             <h2>Customer Reviews</h2>
@@ -136,36 +185,10 @@
     </div>
 </section>
 
-
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>Empire Digital</h3>
-                <p>Premium digital products built for people who demand the best.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Shop</h4>
-                <ul>
-                    <li><a href="/products/">All Products</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/about.html">About</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h4>Stay in the Loop</h4>
-                <p>Get exclusive drops and early access.</p>
-                <form class="footer-form" action="#" method="POST">
-                    <input type="email" name="email" placeholder="your@email.com" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
-        </div>
-    </div>
+<footer>
+    <p>&copy; 2026 Empire Digital. Built different.</p>
+    <p><a href="/empire-digital/privacy.html">Privacy</a> · <a href="/empire-digital/terms.html">Terms</a></p>
 </footer>
-<script src="/js/main.js"></script>
+
 </body>
 </html>
