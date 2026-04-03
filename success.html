@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Product — Empire Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
+a { color: #00ff88; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 700px; margin: 0 auto; padding: 2rem 1rem; }
+nav { background: #111; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+nav a { color: #fff; margin-left: 1.5rem; font-weight: 600; }
+nav .logo { color: #00ff88; font-size: 1.2rem; font-weight: 700; margin-left: 0; }
+h1 { color: #fff; font-size: 2rem; margin-bottom: 0.5rem; }
+h2 { color: #00ff88; font-size: 1.3rem; margin: 2rem 0 1rem; }
+.success-icon { text-align: center; margin: 3rem 0 1rem; }
+.success-icon svg { width: 80px; height: 80px; }
+.success-msg { text-align: center; margin-bottom: 2rem; }
+.success-msg p { color: #aaa; margin-top: 0.5rem; }
+.download-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 2rem; margin: 1.5rem 0; }
+.download-card h3 { color: #fff; margin-bottom: 0.5rem; }
+.download-card p { color: #888; margin-bottom: 1rem; }
+.btn { display: inline-block; padding: 0.75rem 1.5rem; background: #00ff88; color: #0a0a0a; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1rem; }
+.btn:hover { background: #00cc6a; text-decoration: none; }
+.btn-block { display: block; text-align: center; width: 100%; }
+.upsell { background: #111; border: 2px solid #00ff88; border-radius: 12px; padding: 2rem; margin: 2rem 0; text-align: center; }
+.upsell h3 { color: #fff; margin-bottom: 0.5rem; }
+.upsell p { color: #aaa; margin-bottom: 1rem; }
+.upsell .price { color: #00ff88; font-size: 1.5rem; font-weight: 800; }
+.email-capture { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 2rem; margin: 2rem 0; text-align: center; }
+.email-capture input { width: 100%; padding: 0.75rem; background: #0a0a0a; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 1rem; margin: 0.75rem 0; }
+.email-capture input::placeholder { color: #555; }
+.steps { list-style: none; margin: 1rem 0; }
+.steps li { padding: 0.75rem 0; display: flex; align-items: flex-start; gap: 0.75rem; border-bottom: 1px solid #1a1a1a; }
+.step-num { background: #00ff88; color: #0a0a0a; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+footer { background: #111; padding: 2rem; text-align: center; color: #666; margin-top: 3rem; border-top: 1px solid #222; }
+footer a { color: #00ff88; }
+.hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/empire-digital/" class="logo">Empire Digital</a>
+    <div>
+        <a href="/empire-digital/products/">Products</a>
+        <a href="/empire-digital/blog/">Blog</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="success-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#00ff88" stroke-width="2" fill="none"/><path d="M8 12l3 3 5-5" stroke="#00ff88" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="success-msg">
+        <h1>Payment Confirmed!</h1>
+        <p>Thank you for your purchase. Your downloads are ready below.</p>
+    </div>
+
+    <!-- AI Prompt Arsenal Download -->
+    <div class="download-card" id="download-ai-prompt-arsenal">
+        <h3>AI Prompt Arsenal</h3>
+        <p>200+ battle-tested AI prompts for marketing, sales, content, and business.</p>
+        <h2>What's Inside</h2>
+        <ul class="steps">
+            <li><span class="step-num">1</span><span>Open the downloaded file in any text editor, Notion, or Google Docs</span></li>
+            <li><span class="step-num">2</span><span>Browse by category: Marketing, Sales, Content, Business Operations</span></li>
+            <li><span class="step-num">3</span><span>Copy any prompt, paste into ChatGPT/Claude, and customize the [brackets]</span></li>
+        </ul>
+        <br>
+        <a href="https://drive.google.com/uc?export=download&id=PROMPT_ARSENAL_FILE_ID" class="btn btn-block" id="btn-ai-prompt-arsenal">Download AI Prompt Arsenal</a>
+    </div>
+
+    <!-- Grinder Dashboard Download -->
+    <div class="download-card" id="download-grinder-dashboard">
+        <h3>The Grinder Dashboard</h3>
+        <p>Premium Notion template for hustlers. Track projects, income, goals, and daily habits.</p>
+        <h2>How to Use</h2>
+        <ul class="steps">
+            <li><span class="step-num">1</span><span>Click the download link to open the Notion template</span></li>
+            <li><span class="step-num">2</span><span>Click "Duplicate" in the top-right to copy it to your Notion workspace</span></li>
+            <li><span class="step-num">3</span><span>Start tracking your income, projects, and daily habits immediately</span></li>
+        </ul>
+        <br>
+        <a href="https://drive.google.com/uc?export=download&id=GRINDER_DASHBOARD_FILE_ID" class="btn btn-block" id="btn-grinder-dashboard">Download Grinder Dashboard</a>
+    </div>
+
+    <!-- Tax Kit Download -->
+    <div class="download-card" id="download-tax-deadline-survival-kit-freelancers">
+        <h3>Tax Deadline Survival Kit</h3>
+        <p>Step-by-step tax filing guide for freelancers and gig workers.</p>
+        <a href="https://drive.google.com/uc?export=download&id=TAX_KIT_FILE_ID" class="btn btn-block">Download Tax Kit</a>
+    </div>
+
+    <!-- Email capture for updates -->
+    <div class="email-capture">
+        <h3>Get Free Updates Forever</h3>
+        <p>Enter your email to receive product updates and exclusive new releases.</p>
+        <form id="emailForm" onsubmit="captureEmail(event)">
+            <input type="email" id="customerEmail" placeholder="your@email.com" required>
+            <button type="submit" class="btn btn-block">Get Updates</button>
+        </form>
+        <p id="emailSuccess" class="hidden" style="color:#00ff88; margin-top:1rem;">You're in! Check your inbox.</p>
+    </div>
+
+    <!-- Upsell / Cross-sell -->
+    <div class="upsell" id="upsellSection">
+        <h3>Customers Also Bought</h3>
+        <p id="upsellText">Complete your toolkit — bundle both products and save.</p>
+        <div class="price" id="upsellPrice"></div>
+        <br>
+        <a href="" class="btn" id="upsellBtn">Add to Order</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Empire Digital. Built different.</p>
+    <p><a href="/empire-digital/privacy.html">Privacy</a> · <a href="/empire-digital/terms.html">Terms</a></p>
+</footer>
+
+<script>
+// Parse URL params to show correct download
+const params = new URLSearchParams(window.location.search);
+const product = params.get('product');
+
+// Product catalog
+const products = {
+    'ai-prompt-arsenal': { name: 'AI Prompt Arsenal', price: 14.99, upsell: 'grinder-dashboard' },
+    'grinder-dashboard': { name: 'The Grinder Dashboard', price: 9.99, upsell: 'ai-prompt-arsenal' },
+    'tax-deadline-survival-kit-freelancers': { name: 'Tax Deadline Survival Kit', price: 9.99, upsell: 'ai-prompt-arsenal' },
+};
+
+// Show only the purchased product's download
+document.querySelectorAll('.download-card').forEach(card => {
+    if (product && !card.id.includes(product)) {
+        card.style.display = 'none';
+    }
+});
+
+// Set up upsell
+if (product && products[product]) {
+    const upsellSlug = products[product].upsell;
+    const upsellProduct = products[upsellSlug];
+    if (upsellProduct) {
+        document.getElementById('upsellText').textContent =
+            `Love ${products[product].name}? You'll love ${upsellProduct.name} too.`;
+        document.getElementById('upsellPrice').textContent = `$${upsellProduct.price}`;
+        document.getElementById('upsellBtn').href =
+            `/empire-digital/checkout.html?product=${upsellSlug}&price=${upsellProduct.price}`;
+    }
+} else {
+    // No specific product — show all downloads (e.g., from crypto payment)
+    document.getElementById('upsellSection').style.display = 'none';
+}
+
+// Email capture
+function captureEmail(e) {
+    e.preventDefault();
+    const email = document.getElementById('customerEmail').value;
+    // Store locally + send to formspree if configured
+    // Send to Formspree (set up at formspree.io with jeromecrawford42@gmail.com)
+    fetch('https://formspree.io/f/mwpedvwk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            email: email,
+            product: product || 'unknown',
+            type: 'customer_email',
+            timestamp: new Date().toISOString(),
+        }),
+    }).catch(() => {});
+    document.getElementById('emailForm').style.display = 'none';
+    document.getElementById('emailSuccess').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
