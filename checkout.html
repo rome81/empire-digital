@@ -4,143 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout — Empire Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; }
-        .checkout { max-width: 560px; margin: 2rem auto; padding: 1rem; }
-        .security { background: #1a1a1a; padding: 0.75rem; text-align: center; border-radius: 8px; margin-bottom: 2rem; color: #00ff88; font-size: 0.9rem; }
-        h1 { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; }
-        .order-box { background: #1a1a1a; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #2a2a2a; }
-        .order-item { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #2a2a2a; font-size: 1.1rem; }
-        .order-total { display: flex; justify-content: space-between; padding-top: 1rem; font-size: 1.4rem; font-weight: 700; color: #00ff88; }
-        .payment-box { background: #1a1a1a; border-radius: 12px; padding: 1.5rem; border: 1px solid #2a2a2a; }
-        .payment-box h3 { margin-bottom: 1rem; font-size: 1.2rem; }
-        .crypto-section { background: #0a0a0a; border-radius: 8px; padding: 1.5rem; margin-top: 1rem; }
-        .crypto-label { color: #00ff88; font-weight: 600; margin-bottom: 0.5rem; }
-        .wallet-row { display: flex; align-items: center; gap: 0.5rem; margin: 0.75rem 0; }
-        .wallet-addr { background: #2a2a2a; padding: 0.6rem 1rem; border-radius: 6px; font-family: monospace; font-size: 0.75rem; color: #00ff88; word-break: break-all; flex: 1; }
-        .btn-copy { padding: 0.6rem 1.2rem; background: #00ff88; color: #0a0a0a; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
-        .btn-copy:hover { background: #00cc6a; }
-        .amount-display { font-size: 2rem; font-weight: 700; color: #00ff88; text-align: center; margin: 1rem 0; }
-        .steps { margin-top: 1.5rem; }
-        .steps li { color: #ccc; margin: 0.75rem 0; padding-left: 0.5rem; line-height: 1.5; }
-        .steps li strong { color: #fff; }
-        .confirm-section { margin-top: 1.5rem; text-align: center; }
-        .btn-confirm { display: inline-block; padding: 1rem 2.5rem; background: #00ff88; color: #0a0a0a; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: transform 0.2s; }
-        .btn-confirm:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,255,136,0.3); }
-        .delivery { display: none; background: #1a1a1a; border-radius: 12px; padding: 2rem; margin-top: 1.5rem; text-align: center; border: 2px solid #00ff88; }
-        .delivery h3 { color: #00ff88; font-size: 1.3rem; margin-bottom: 1rem; }
-        .btn-download { display: inline-block; padding: 1rem 2rem; background: #00ff88; color: #0a0a0a; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.1rem; margin-top: 1rem; }
-        .footer-note { text-align: center; padding: 2rem; color: #666; font-size: 0.8rem; }
-        .network-badge { display: inline-block; background: #7b3fe4; color: #fff; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem; }
-    </style>
+    <meta name="description" content="Complete your purchase">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="Checkout — Empire Digital">
+    <meta property="og:description" content="Complete your purchase">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/empire-digital/css/style.css">
+    
 </head>
 <body>
-    <div class="checkout">
-        <div class="security">🔒 Secure Checkout — Encrypted Payment</div>
-        <h1>Complete Your Purchase</h1>
 
-        <div class="order-box">
-            <div class="order-item">
-                <span id="productName">Product</span>
-                <span id="productPrice">$0.00</span>
-            </div>
-            <div class="order-total">
-                <span>Total</span>
-                <span id="totalPrice">$0.00</span>
-            </div>
-        </div>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/empire-digital/" class="nav-logo">Empire Digital</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="/empire-digital/">Home</a></li>
+            <li><a href="/empire-digital/products/">Products</a></li>
+            <li><a href="/empire-digital/blog/">Blog</a></li>
+            <li><a href="/empire-digital/about.html">About</a></li>
+            <li><a href="/empire-digital/checkout.html" class="nav-cta">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </div>
+</nav>
 
-        <div class="payment-box" style="margin-bottom:1.5rem;">
-            <h3>💳 Pay with Card</h3>
-            <p style="color:#888;margin-bottom:1rem;">Visa, Mastercard, Amex — processed securely by Stripe</p>
-            <a id="stripeLink" href="#" class="btn-confirm" style="display:inline-block;text-decoration:none;width:100%;text-align:center;" target="_blank">Pay with Card</a>
-            <p style="color:#444;font-size:0.75rem;margin-top:0.5rem;">SSL encrypted · PCI compliant · 3D Secure</p>
-        </div>
+<section class="page-header">
+    <div class="container">
+        <h1>Checkout</h1>
+        <p>You are one step away from leveling up.</p>
+    </div>
+</section>
 
-        <div class="payment-box">
-            <h3>₿ Or Pay with Crypto (USDC)</h3>
-            <div class="crypto-section">
-                <span class="network-badge">Polygon Network</span>
-                <p class="crypto-label">Send USDC to this address:</p>
-                <div class="wallet-row">
-                    <div class="wallet-addr" id="walletAddr">0x0c9f08e8789b8918F45E380340ac0F908B02DBCa</div>
-                    <button class="btn-copy" onclick="copyAddr()">Copy</button>
+<section class="section">
+    <div class="container">
+        <div class="checkout-grid">
+            <!-- Order Summary -->
+            <div class="checkout-summary">
+                <h2>Order Summary</h2>
+                <div id="checkoutItems" class="checkout-items">
+                    <!-- Populated by JS from cart -->
+                    <div class="empty-state" id="emptyCart">
+                        <p>Your cart is empty. <a href="/empire-digital/products/">Browse products</a></p>
+                    </div>
                 </div>
-                <div class="amount-display">Send: $<span id="sendAmount">0.00</span> USDC</div>
-
-                <ol class="steps">
-                    <li><strong>Copy</strong> the wallet address above</li>
-                    <li><strong>Open</strong> your crypto wallet (MetaMask, Coinbase, etc.)</li>
-                    <li><strong>Send</strong> the exact USDC amount on <strong>Polygon network</strong></li>
-                    <li><strong>Click</strong> "I've Sent Payment" below</li>
-                    <li><strong>Download</strong> your product instantly</li>
-                </ol>
-
-                <div class="confirm-section">
-                    <button class="btn-confirm" onclick="confirmPayment()">✓ I've Sent Payment</button>
+                <div class="checkout-total" id="checkoutTotal" style="display:none;">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="subtotalAmount">$0.00</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total</span>
+                        <span id="totalAmount">$0.00</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="delivery" id="deliverySection">
-            <h3>✅ Thank You!</h3>
-            <p>Your payment is being verified. Download your product below:</p>
-            <a href="#" class="btn-download" id="downloadLink">Download Your Product</a>
-            <p style="color: #888; margin-top: 1rem; font-size: 0.85rem;">
-                You'll also receive a confirmation email at your address.<br>
-                Questions? Email us at jeromecrawford42@gmail.com
-            </p>
-        </div>
+            <!-- Payment -->
+            <div class="checkout-payment">
+                <h2>Payment</h2>
 
-        <div class="footer-note">
-            <p>🔒 All payments are secure and encrypted</p>
-            <p>Polygon Network (MATIC) · USDC Stablecoin · Instant Delivery</p>
-            <p>30-day money-back guarantee · Empire Digital © 2026</p>
+                <div class="payment-option">
+                    <h3>Option 1: Pay with Crypto (USDC on Polygon)</h3>
+                    <p>Send <strong>USDC</strong> on the <strong>Polygon</strong> network to the address below.</p>
+                    <div class="wallet-address-box">
+                        <code id="walletAddress">0x0c9f08e8789b8918F45E380340ac0F908B02DBCa</code>
+                        <button class="btn btn-sm copy-address-btn" onclick="copyAddress()">Copy Address</button>
+                    </div>
+                    <div class="crypto-instructions">
+                        <p><strong>Important:</strong></p>
+                        <ul>
+                            <li>Send USDC on <strong>Polygon network only</strong></li>
+                            <li>Send the exact amount shown in your total</li>
+                            <li>Transaction confirms in ~2 seconds</li>
+                            <li>Near-zero gas fees on Polygon</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div class="payment-confirmation">
+                    <h3>After Payment</h3>
+                    <p>Once you have sent payment, click below to confirm and get your download.</p>
+                    <input type="email" id="buyerEmail" placeholder="Your email for receipt" class="form-input">
+                    <button class="btn btn-accent btn-lg btn-block" id="confirmPaymentBtn" onclick="confirmPayment()">
+                        I Have Sent Payment &mdash; Get My Download
+                    </button>
+                </div>
+
+                <!-- Download area (shown after confirmation) -->
+                <div class="download-area" id="downloadArea" style="display:none;">
+                    <div class="download-success">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><circle cx="12" cy="12" r="10" stroke="#00ff88" stroke-width="2" fill="none"/><path d="M8 12l3 3 5-5" stroke="#00ff88" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <h3>Payment Confirmed!</h3>
+                        <p>Thank you for your purchase. Your downloads are ready.</p>
+                        <div id="downloadLinks"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <script>
-        // Parse URL params
-        const params = new URLSearchParams(window.location.search);
-        const product = params.get('product') || 'product';
-        const price = parseFloat(params.get('price') || '0');
 
-        // Product names
-        const names = {
-            'grinder-dashboard': 'The Grinder\'s Dashboard — Notion Template',
-            'ai-prompt-arsenal': 'AI Prompt Arsenal — 200+ Prompts',
-        };
-
-        // Stripe payment links
-        const stripeLinks = {
-            'grinder-dashboard': 'https://buy.stripe.com/00wfZhepo1wd26G3SI7N600',
-            'ai-prompt-arsenal': 'https://buy.stripe.com/bJebJ1dlk6QxcLkbla7N601',
-        };
-
-        // Set display
-        document.getElementById('productName').textContent = names[product] || product;
-        document.getElementById('productPrice').textContent = '$' + price.toFixed(2);
-        document.getElementById('totalPrice').textContent = '$' + price.toFixed(2);
-        document.getElementById('sendAmount').textContent = price.toFixed(2);
-        document.getElementById('stripeLink').href = stripeLinks[product] || '#';
-        document.getElementById('stripeLink').textContent = 'Pay $' + price.toFixed(2) + ' with Card';
-
-        function copyAddr() {
-            navigator.clipboard.writeText('0x0c9f08e8789b8918F45E380340ac0F908B02DBCa');
-            document.querySelector('.btn-copy').textContent = '✓ Copied!';
-            setTimeout(() => document.querySelector('.btn-copy').textContent = 'Copy', 2000);
-        }
-
-        function confirmPayment() {
-            document.getElementById('deliverySection').style.display = 'block';
-            document.getElementById('downloadLink').href = '/products/' + product + '.html';
-            document.querySelector('.btn-confirm').textContent = '✓ Payment Confirmed';
-            document.querySelector('.btn-confirm').disabled = true;
-            document.querySelector('.btn-confirm').style.opacity = '0.5';
-            window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
-        }
-    </script>
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Empire Digital</h3>
+                <p>Premium digital products built for people who demand the best.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="/empire-digital/products/">All Products</a></li>
+                    <li><a href="/empire-digital/blog/">Blog</a></li>
+                    <li><a href="/empire-digital/about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay in the Loop</h4>
+                <p>Get exclusive drops and early access.</p>
+                <form class="footer-form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
+        </div>
+    </div>
+</footer>
+<script src="/empire-digital/js/main.js"></script>
 </body>
 </html>

@@ -5,49 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Empire Digital</title>
     <meta name="description" content="Insights, guides, and tips from Empire Digital">
+    <meta name="keywords" content="">
     <meta property="og:title" content="Blog — Empire Digital">
     <meta property="og:description" content="Insights, guides, and tips from Empire Digital">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
-a { color: #00ff88; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
-nav { background: #111; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-nav a { color: #fff; margin-left: 1.5rem; font-weight: 600; }
-nav .logo { color: #00ff88; font-size: 1.2rem; font-weight: 700; margin-left: 0; }
-h1, h2, h3 { color: #fff; }
-h1 { font-size: 2rem; margin: 2rem 0 1rem; }
-h2 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; color: #00ff88; }
-.btn { display: inline-block; padding: 0.75rem 1.5rem; background: #00ff88; color: #0a0a0a; border-radius: 8px; font-weight: 600; text-decoration: none; }
-.btn:hover { background: #00cc6a; text-decoration: none; }
-footer { background: #111; padding: 2rem; text-align: center; color: #666; margin-top: 3rem; border-top: 1px solid #222; }
-footer a { color: #00ff88; }
-.page-header { padding: 3rem 0 1rem; text-align: center; }
-.page-header p { color: #888; margin-top: 0.5rem; }
-.blog-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; }
-.blog-card h2 { margin-top: 0.5rem; }
-.blog-card h2 a { color: #fff; }
-.blog-card h2 a:hover { color: #00ff88; }
-.blog-card p { color: #888; margin: 0.75rem 0; }
-.blog-read-more { color: #00ff88; font-weight: 600; }
-@media (max-width: 768px) {
-    nav { flex-wrap: wrap; gap: 0.5rem; }
-}
-    </style>
+    <link rel="stylesheet" href="/empire-digital/css/style.css">
+    
 </head>
 <body>
 
-<nav>
-    <a href="/empire-digital/" class="logo">Empire Digital</a>
-    <div>
-        <a href="/empire-digital/products/">Products</a>
-        <a href="/empire-digital/blog/">Blog</a>
-        <a href="/empire-digital/about.html">About</a>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/empire-digital/" class="nav-logo">Empire Digital</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="/empire-digital/">Home</a></li>
+            <li><a href="/empire-digital/products/">Products</a></li>
+            <li><a href="/empire-digital/blog/" class="active">Blog</a></li>
+            <li><a href="/empire-digital/about.html">About</a></li>
+            <li><a href="/empire-digital/checkout.html" class="nav-cta">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
     </div>
 </nav>
 
@@ -61,22 +43,41 @@ footer a { color: #00ff88; }
 <section class="section">
     <div class="container">
         <div class="blog-grid">
-
-            <article class="blog-card">
-                <div class="blog-card-body">
-                    <h2><a href="/empire-digital/blog/built-empire-from-zero.html">How I Built a Digital Empire From Zero</a></h2>
-                    <p>The journey from nothing to something. No BS, just real talk about what it takes to build an online business from scratch.</p>
-                    <a href="/empire-digital/blog/built-empire-from-zero.html" class="blog-read-more">Read More &rarr;</a>
-                </div>
-            </article>
+<div class="empty-state"><h3>Coming Soon</h3><p>Fresh content is on the way. Stay tuned.</p></div>
         </div>
     </div>
 </section>
 
-<footer>
-    <p>&copy; 2026 Empire Digital. Built different.</p>
-    <p><a href="/empire-digital/privacy.html">Privacy</a> · <a href="/empire-digital/terms.html">Terms</a></p>
-</footer>
 
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Empire Digital</h3>
+                <p>Premium digital products built for people who demand the best.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="/empire-digital/products/">All Products</a></li>
+                    <li><a href="/empire-digital/blog/">Blog</a></li>
+                    <li><a href="/empire-digital/about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay in the Loop</h4>
+                <p>Get exclusive drops and early access.</p>
+                <form class="footer-form" action="#" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
+        </div>
+    </div>
+</footer>
+<script src="/empire-digital/js/main.js"></script>
 </body>
 </html>

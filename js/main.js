@@ -4,6 +4,7 @@
 
 (function() {
     'use strict';
+    var BASE_PATH = '/empire-digital';
 
     // ── Cart (localStorage) ─────────────────────────────────────────────
     const Cart = {
@@ -129,10 +130,16 @@
 
     // ── "Buy Now" URL param handling ────────────────────────────────────
     var urlParams = new URLSearchParams(window.location.search);
-    var buySlug = urlParams.get('buy');
-    if (buySlug) {
-        // If arriving via "Buy Now" and product not in cart, it will be
-        // shown automatically via the checkout rendering below.
+    var buySlug = urlParams.get('product');
+    var buyPrice = urlParams.get('price');
+    if (buySlug && buyPrice) {
+        // If arriving via "Buy Now", add product to cart automatically
+        Cart.addItem({
+            name: buySlug,
+            slug: buySlug,
+            price: buyPrice,
+            image: ''
+        });
     }
 
     // ── Checkout Page Rendering ─────────────────────────────────────────
@@ -227,7 +234,7 @@
         if (downloadLinks && items.length > 0) {
             var html = '';
             items.forEach(function(item) {
-                html += '<a href="/products/' + item.slug + '/download" class="download-link">' +
+                html += '<a href="' + BASE_PATH + '/products/' + item.slug + '/download" class="download-link">' +
                     'Download ' + item.name + '</a>';
             });
             downloadLinks.innerHTML = html;
