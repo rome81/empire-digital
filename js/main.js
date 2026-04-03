@@ -273,13 +273,24 @@
             e.preventDefault();
             var input = this.querySelector('input[type="email"]');
             if (input && input.value) {
+                // Send to Formspree
+                fetch('https://formspree.io/f/xwvwndkd', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: input.value,
+                        source: window.location.pathname,
+                        type: 'newsletter_signup',
+                        timestamp: new Date().toISOString(),
+                    }),
+                }).catch(function() {});
                 // Store locally as backup
                 var emails = [];
                 try { emails = JSON.parse(localStorage.getItem('captured_emails') || '[]'); } catch(x) {}
                 emails.push({ email: input.value, timestamp: new Date().toISOString() });
                 localStorage.setItem('captured_emails', JSON.stringify(emails));
                 input.value = '';
-                showToast('Thanks for subscribing!');
+                showToast('You\'re in! Check your inbox.');
             }
         });
     });
