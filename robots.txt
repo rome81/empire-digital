@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.github.io/empire-digital/sitemap.xml
+Sitemap: https://rome81.github.io/empire-digital/sitemap.xml
