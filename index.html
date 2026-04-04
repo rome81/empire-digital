@@ -183,5 +183,57 @@
     </div>
 </footer>
 <script src="/empire-digital/js/main.js"></script>
+
+<!-- STICKY TOP BAR — Free shipping / discount banner -->
+<div id="stickyBar" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#00ff88,#00cc6a);color:#000;text-align:center;padding:10px 40px 10px 20px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;display:block;">
+    🔥 LIMITED: Get 50% off your first product — Use code <span style="background:#000;color:#00ff88;padding:2px 8px;border-radius:4px;margin:0 4px;">EMPIRE50</span> at checkout
+    <a href="/empire-digital/products/" style="color:#000;text-decoration:underline;margin-left:10px;">Shop Now →</a>
+    <span onclick="document.getElementById('stickyBar').style.display='none'" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:18px;">✕</span>
+</div>
+
+<!-- EXIT INTENT POPUP — Shows when user tries to leave -->
+<div id="exitPopup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+    <div style="background:#0f0f1a;border:2px solid #00ff88;border-radius:16px;padding:40px;max-width:480px;width:90%;text-align:center;position:relative;font-family:Arial,sans-serif;">
+        <span onclick="document.getElementById('exitPopup').style.display='none';sessionStorage.setItem('exitShown','1')" style="position:absolute;top:12px;right:16px;color:#666;cursor:pointer;font-size:24px;">✕</span>
+        <h2 style="color:#00ff88;margin:0 0 12px;font-size:28px;">Wait — Don't Leave Empty-Handed</h2>
+        <p style="color:#ccc;margin:0 0 20px;font-size:16px;line-height:1.5;">Get our <strong>AI Prompt Arsenal</strong> (210+ prompts) for just <strong style="color:#00ff88;">$14.99</strong> — or grab any product with code <strong>EMPIRE50</strong> for 50% off.</p>
+        <a href="https://buy.stripe.com/8x29AT3KK7UB4eOgFu7N602" style="display:inline-block;background:#00ff88;color:#000;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:800;font-size:16px;margin-bottom:12px;">Get AI Prompt Arsenal — $14.99</a>
+        <br>
+        <a href="/empire-digital/products/" style="color:#00ff88;font-size:13px;text-decoration:underline;">Browse all products</a>
+    </div>
+</div>
+
+<!-- TIMED POPUP — Shows after 15 seconds on page -->
+<div id="timedPopup" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9998;background:#1a1a2e;border:1px solid #00ff88;border-radius:12px;padding:20px;max-width:320px;font-family:Arial,sans-serif;box-shadow:0 8px 32px rgba(0,255,136,0.15);">
+    <span onclick="document.getElementById('timedPopup').style.display='none';sessionStorage.setItem('timedShown','1')" style="position:absolute;top:8px;right:12px;color:#666;cursor:pointer;font-size:16px;">✕</span>
+    <p style="color:#00ff88;font-weight:800;margin:0 0 8px;font-size:15px;">🔥 People are buying right now</p>
+    <p style="color:#ccc;margin:0 0 12px;font-size:13px;">Someone just grabbed the AI Prompt Arsenal. 210+ tested prompts for $14.99.</p>
+    <a href="https://buy.stripe.com/8x29AT3KK7UB4eOgFu7N602" style="display:inline-block;background:#00ff88;color:#000;padding:8px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-size:13px;">Get It Too ���</a>
+</div>
+
+<script>
+// Exit intent — triggers when mouse leaves viewport (desktop)
+document.addEventListener('mouseout', function(e) {
+    if (e.clientY < 5 && !sessionStorage.getItem('exitShown')) {
+        document.getElementById('exitPopup').style.display = 'flex';
+        sessionStorage.setItem('exitShown', '1');
+    }
+});
+
+// Timed FOMO popup — shows after 15 seconds
+setTimeout(function() {
+    if (!sessionStorage.getItem('timedShown')) {
+        document.getElementById('timedPopup').style.display = 'block';
+        // Auto-hide after 10 seconds
+        setTimeout(function() {
+            var tp = document.getElementById('timedPopup');
+            if (tp) tp.style.display = 'none';
+        }, 10000);
+    }
+}, 15000);
+
+// Add padding to body so sticky bar doesn't cover content
+document.body.style.paddingTop = '44px';
+</script>
 </body>
 </html>
