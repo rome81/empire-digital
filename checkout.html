@@ -68,18 +68,8 @@
             <div class="checkout-payment">
                 <h2>Payment</h2>
 
-                <div class="payment-option" style="margin-bottom:2rem;">
-                    <h3>Pay with Card (Recommended)</h3>
-                    <p>Secure checkout powered by Stripe. Instant delivery after payment.</p>
-                    <a href="#" class="btn btn-primary btn-lg btn-block" id="stripePayBtn" onclick="redirectToStripe()" style="margin-top:1rem;text-align:center;display:block;">
-                        Pay with Card
-                    </a>
-                </div>
-
-                <hr style="border-color:#333;margin:2rem 0;">
-
                 <div class="payment-option">
-                    <h3>Or Pay with Crypto (USDC on Polygon)</h3>
+                    <h3>Option 1: Pay with Crypto (USDC on Polygon)</h3>
                     <p>Send <strong>USDC</strong> on the <strong>Polygon</strong> network to the address below.</p>
                     <div class="wallet-address-box">
                         <code id="walletAddress">0x0c9f08e8789b8918F45E380340ac0F908B02DBCa</code>
@@ -152,30 +142,5 @@
     </div>
 </footer>
 <script src="/empire-digital/js/main.js"></script>
-<script>
-// Stripe payment links per product
-var stripeLinks = {
-    'ai-prompt-arsenal': 'https://buy.stripe.com/8x29AT3KK7UB4eOgFu7N602',
-    'grinder-dashboard': 'https://buy.stripe.com/00waEXdlkcaR12C50Q7N603',
-    'tax-deadline-survival-kit': 'https://buy.stripe.com/3cIdR96WW7UB12C2OE7N604'
-};
-function redirectToStripe() {
-    var params = new URLSearchParams(window.location.search);
-    var product = params.get('product');
-    // Check URL param first, then fall back to first cart item
-    if (product && stripeLinks[product]) {
-        window.location.href = stripeLinks[product];
-        return;
-    }
-    var cartItems = [];
-    try { cartItems = JSON.parse(localStorage.getItem('boss_cart') || '[]'); } catch(e) {}
-    if (cartItems.length > 0 && stripeLinks[cartItems[0].slug]) {
-        window.location.href = stripeLinks[cartItems[0].slug];
-        return;
-    }
-    // Fallback: AI Prompt Arsenal
-    window.location.href = stripeLinks['ai-prompt-arsenal'];
-}
-</script>
 </body>
 </html>

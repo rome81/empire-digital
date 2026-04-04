@@ -234,7 +234,7 @@
         if (downloadLinks && items.length > 0) {
             var html = '';
             items.forEach(function(item) {
-                html += '<a href="' + BASE_PATH + '/downloads/' + item.slug + '.pdf" class="download-link" download>' +
+                html += '<a href="' + BASE_PATH + '/products/' + item.slug + '/download" class="download-link">' +
                     'Download ' + item.name + '</a>';
             });
             downloadLinks.innerHTML = html;
