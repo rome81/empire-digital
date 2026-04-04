@@ -235,5 +235,102 @@ setTimeout(function() {
 // Add padding to body so sticky bar doesn't cover content
 document.body.style.paddingTop = '44px';
 </script>
+
+<!-- CHATBOT WIDGET -->
+<div id="chatBot" style="position:fixed;bottom:20px;right:20px;z-index:99999;font-family:Arial,sans-serif;">
+    <!-- Chat Toggle Button -->
+    <div id="chatToggle" onclick="toggleChat()" style="width:60px;height:60px;background:#00ff88;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,255,136,0.4);transition:transform 0.2s;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" style="display:none;width:340px;max-height:480px;background:#0f0f1a;border:1px solid #00ff88;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.5);position:absolute;bottom:70px;right:0;">
+        <!-- Header -->
+        <div style="background:#1a1a2e;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2a2a4a;">
+            <div>
+                <div style="color:#00ff88;font-weight:700;font-size:14px;">Empire Digital</div>
+                <div style="color:#666;font-size:11px;">Ask us anything</div>
+            </div>
+            <span onclick="toggleChat()" style="color:#666;cursor:pointer;font-size:20px;">&times;</span>
+        </div>
+
+        <!-- Messages -->
+        <div id="chatMessages" style="padding:12px;height:280px;overflow-y:auto;">
+            <div style="background:#1a1a2e;padding:10px 14px;border-radius:12px;margin-bottom:8px;color:#ccc;font-size:13px;line-height:1.5;">
+                Hey! How can I help you today? Pick a question below or type your own.
+            </div>
+            <!-- Quick Questions -->
+            <div id="quickQs" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+                <button onclick="askQ('What products do you sell?')" style="background:#1a1a2e;border:1px solid #2a2a4a;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;">What products do you sell?</button>
+                <button onclick="askQ('How do I get my download?')" style="background:#1a1a2e;border:1px solid #2a2a4a;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;">How do I get my download?</button>
+                <button onclick="askQ('Do you offer refunds?')" style="background:#1a1a2e;border:1px solid #2a2a4a;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;">Do you offer refunds?</button>
+                <button onclick="askQ('Can I request a custom product?')" style="background:#1a1a2e;border:1px solid #2a2a4a;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;">Can I request a custom product?</button>
+                <button onclick="askQ('Do you have a discount code?')" style="background:#1a1a2e;border:1px solid #2a2a4a;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;">Any discount codes?</button>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div style="padding:10px 12px;border-top:1px solid #2a2a4a;display:flex;gap:8px;">
+            <input id="chatInput" type="text" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()" style="flex:1;background:#1a1a2e;border:1px solid #2a2a4a;color:#fff;padding:8px 12px;border-radius:8px;font-size:13px;outline:none;">
+            <button onclick="sendChat()" style="background:#00ff88;color:#000;border:none;padding:8px 14px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;">Send</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleChat(){
+    var w=document.getElementById('chatWindow');
+    w.style.display=w.style.display==='none'?'block':'none';
+}
+
+var chatAnswers={
+    'what products do you sell?':'We sell 3 premium digital products:\n\n1. AI Prompt Arsenal ($14.99) — 210+ tested prompts for sales, marketing, and content\n2. The Grinder Dashboard ($9.99) — Notion productivity template with income tracking, CRM, habits, goals\n3. Tax Deadline Survival Kit ($9.99) — Freelancer tax checklist and deduction finder\n\nAll instant PDF download after payment.',
+    'how do i get my download?':'After payment through Stripe, you\'ll be redirected to our success page where your download link appears instantly. The file is a PDF you can save and use forever. If you have issues, email us at jeromecrawford42@gmail.com.',
+    'do you offer refunds?':'Yes! If you\'re not satisfied within 7 days of purchase, email jeromecrawford42@gmail.com and we\'ll process a full refund. No questions asked.',
+    'can i request a custom product?':'Absolutely! We love custom requests. Tell us what you need — a specific prompt pack, template, or guide — and we\'ll build it. Email jeromecrawford42@gmail.com with your idea and we\'ll get back to you within 24 hours.',
+    'do you have a discount code?':'Yes! Use code EMPIRE50 at checkout for 50% off your first product. Limited time offer.',
+    'any discount codes?':'Yes! Use code EMPIRE50 for 50% off your first product. Apply it at checkout.',
+};
+
+function askQ(q){
+    addMsg(q,'user');
+    document.getElementById('quickQs').style.display='none';
+    var a=chatAnswers[q.toLowerCase()];
+    if(a){setTimeout(function(){addMsg(a,'bot');},500);}
+    else{setTimeout(function(){addMsg('Great question! Let me look into that. In the meantime, email us at jeromecrawford42@gmail.com for a quick response.','bot');},500);}
+}
+
+function sendChat(){
+    var input=document.getElementById('chatInput');
+    var msg=input.value.trim();
+    if(!msg)return;
+    input.value='';
+    addMsg(msg,'user');
+    document.getElementById('quickQs').style.display='none';
+
+    // Check for matching answer
+    var found=false;
+    for(var key in chatAnswers){
+        if(msg.toLowerCase().includes(key.split('?')[0].split(' ').slice(-2).join(' '))){
+            setTimeout(function(){addMsg(chatAnswers[key],'bot');},500);
+            found=true;break;
+        }
+    }
+    if(!found){
+        // Send to Formspree as a question
+        fetch('https://formspree.io/f/xwvwndkd',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,type:'chatbot_question',page:window.location.href})});
+        setTimeout(function(){addMsg('Thanks for reaching out! I\'ve sent your question to our team. We\'ll get back to you at your email within 24 hours.\n\nIn the meantime, check out our products — you might find what you need!','bot');},500);
+    }
+}
+
+function addMsg(text,type){
+    var msgs=document.getElementById('chatMessages');
+    var div=document.createElement('div');
+    div.style.cssText=type==='user'?'background:#00ff88;color:#000;padding:8px 14px;border-radius:12px;margin:6px 0 6px 40px;font-size:13px;line-height:1.4;':'background:#1a1a2e;color:#ccc;padding:10px 14px;border-radius:12px;margin:6px 40px 6px 0;font-size:13px;line-height:1.5;white-space:pre-line;';
+    div.textContent=text;
+    msgs.appendChild(div);
+    msgs.scrollTop=msgs.scrollHeight;
+}
+</script>
 </body>
 </html>
