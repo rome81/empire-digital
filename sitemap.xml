@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://rome81.github.io/empire-digital/</loc><priority>1.0</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/products/</loc><priority>0.9</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/</loc><priority>0.8</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/about.html</loc><priority>0.6</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/products/ai-prompt-arsenal.html</loc><priority>0.8</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/products/grinder-dashboard.html</loc><priority>0.8</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/products/tax-deadline-survival-kit.html</loc><priority>0.8</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/freelancer-productivity-hacks-that-work.html</loc><priority>0.7</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/how-to-use-chatgpt-for-business.html</loc><priority>0.7</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/best-ai-tools-for-small-business-owners-2026.html</loc><priority>0.7</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/how-to-start-a-side-hustle-with-no-money.html</loc><priority>0.7</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/digital-products-that-sell-on-autopilot.html</loc><priority>0.7</priority></url>
-  <url><loc>https://rome81.github.io/empire-digital/blog/best-ai-tools-for-business-2026.html</loc><priority>0.7</priority></url>
-  <url><loc>https://empiredigi.store/blog/how-to-start-a-side-hustle-with-no-money.html</loc><priority>0.7</priority></url>
+  <url><loc>https://empiredigi.store/</loc><priority>1.0</priority></url>
+  <url><loc>https://empiredigi.store/products/</loc><priority>0.9</priority></url>
+  <url><loc>https://empiredigi.store/blog/</loc><priority>0.8</priority></url>
+  <url><loc>https://empiredigi.store/about.html</loc><priority>0.6</priority></url>
+  <url><loc>https://empiredigi.store/products/ai-prompt-arsenal.html</loc><priority>0.8</priority></url>
+  <url><loc>https://empiredigi.store/products/grinder-dashboard.html</loc><priority>0.8</priority></url>
+  <url><loc>https://empiredigi.store/products/tax-deadline-survival-kit.html</loc><priority>0.8</priority></url>
+  <url><loc>https://empiredigi.store/blog/freelancer-productivity-hacks-that-work.html</loc><priority>0.7</priority></url>
   <url><loc>https://empiredigi.store/blog/how-to-use-chatgpt-for-business.html</loc><priority>0.7</priority></url>
+  <url><loc>https://empiredigi.store/blog/best-ai-tools-for-small-business-owners-2026.html</loc><priority>0.7</priority></url>
+  <url><loc>https://empiredigi.store/blog/how-to-start-a-side-hustle-with-no-money.html</loc><priority>0.7</priority></url>
+  <url><loc>https://empiredigi.store/blog/digital-products-that-sell-on-autopilot.html</loc><priority>0.7</priority></url>
+  <url><loc>https://empiredigi.store/blog/best-ai-tools-for-business-2026.html</loc><priority>0.7</priority></url>
 </urlset>
