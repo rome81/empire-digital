@@ -603,3 +603,159 @@ ul, ol { list-style: none; }
 .product-card:nth-child(4) { animation-delay: 0.3s; }
 .product-card:nth-child(5) { animation-delay: 0.4s; }
 .product-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PREMIUM UPGRADE — Modern Ecommerce Enhancements
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Hero Animations ──────────────────────────────────────────────────── */
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+    50% { box-shadow: 0 0 20px 8px rgba(0, 255, 136, 0.2); }
+}
+.hero-content .hero-badge { animation: heroFadeIn 0.6s ease forwards; opacity: 0; }
+.hero-content h1 { animation: heroFadeIn 0.6s 0.15s ease forwards; opacity: 0; }
+.hero-content .hero-subtitle { animation: heroFadeIn 0.6s 0.3s ease forwards; opacity: 0; }
+.hero-content .hero-actions { animation: heroFadeIn 0.6s 0.45s ease forwards; opacity: 0; }
+.hero-content .hero-stats { animation: heroFadeIn 0.6s 0.6s ease forwards; opacity: 0; }
+.hero-actions .btn-primary {
+    animation: ctaPulse 2.5s infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-actions .btn-primary:hover {
+    animation: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+/* ── Enhanced Product Cards ───────────────────────────────────────────── */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 255, 136, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+}
+.product-card:hover .product-card-img-placeholder {
+    background: rgba(0, 255, 136, 0.15);
+}
+.product-card:hover .product-card-img-placeholder span {
+    transform: scale(1.15);
+    color: var(--accent);
+}
+.product-card-img-placeholder span {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* ── Buy Now Button with Ripple ───────────────────────────────────────── */
+.btn-buy-now {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.btn-buy-now:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
+}
+
+/* ── Modern Product Grid ──────────────────────────────────────────────── */
+.products-modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+.products-modern-grid .product-card {
+    display: flex;
+    flex-direction: column;
+}
+.products-modern-grid .product-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.products-modern-grid .product-card-footer {
+    margin-top: auto;
+}
+
+/* ── Skeleton Loader ──────────────────────────────────────────────────── */
+@keyframes skeletonPulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+.skeleton {
+    background: linear-gradient(90deg, var(--card-bg) 25%, var(--card-border) 50%, var(--card-bg) 75%);
+    background-size: 200% 100%;
+    animation: skeletonPulse 1.5s infinite;
+    border-radius: var(--radius-sm);
+}
+
+/* ── Floating Labels ──────────────────────────────────────────────────── */
+.product-card .product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Smooth Page Transitions ──────────────────────────────────────────── */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 0.8s ease forwards;
+}
+.section:nth-of-type(2) { animation-delay: 0.2s; }
+.section:nth-of-type(3) { animation-delay: 0.4s; }
+.section:nth-of-type(4) { animation-delay: 0.6s; }
+
+/* ── Price Tag Styling ────────────────────────────────────────────────── */
+.product-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* ── Footer Glow ──────────────────────────────────────────────────────── */
+footer {
+    border-top: 1px solid var(--card-border);
+    position: relative;
+}
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+/* ── Responsive Tweaks ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .products-modern-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    .products-modern-grid { grid-template-columns: repeat(2, 1fr); }
+}
