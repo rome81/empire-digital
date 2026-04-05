@@ -4,7 +4,7 @@
 
 (function() {
     'use strict';
-    var BASE_PATH = '/empire-digital';
+    var BASE_PATH = '';
 
     // ── Cart (localStorage) ─────────────────────────────────────────────
     const Cart = {
