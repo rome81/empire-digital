@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limited Time Deals — Empire Digital</title>
+    <meta name="description" content="Exclusive limited-time deals on premium digital products. Save big on bundles, AI prompts, and productivity tools. This week only.">
+    <meta name="keywords" content="deals, discount, bundle, AI prompts, digital products, sale">
+    <meta property="og:title" content="Limited Time Deals — Empire Digital">
+    <meta property="og:description" content="Exclusive limited-time deals on premium digital products. Save big this week only.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://empiredigi.store/img/og-default.png">
+    <meta property="og:url" content="https://empiredigi.store/deals.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Limited Time Deals — Empire Digital">
+    <meta name="twitter:description" content="Exclusive limited-time deals on premium digital products. Save big this week only.">
+    <meta name="twitter:image" content="https://empiredigi.store/img/og-default.png">
+    <link rel="canonical" href="https://empiredigi.store/deals.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css?v=1775346836">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ABCD232DSE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ABCD232DSE');
+</script>
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '9127380912836192');
+  fbq('track', 'PageView');
+</script>
+<!-- TikTok Pixel -->
+<script>
+  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie'];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){var i='https://analytics.tiktok.com/i18n/pixel/events.js';ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;
+  ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};
+  var o=document.createElement('script');o.type='text/javascript';o.async=!0;o.src=i+'?sdkid='+e+'&lib='+t;
+  var a=document.getElementsByTagName('script')[0];a.parentNode.insertBefore(o,a)};
+  ttq.load('CFH83AJC77UUUGLE2TJG');
+  ttq.page();
+  }(window,document,'ttq');
+</script>
+<style>
+    .deals-hero {
+        background: linear-gradient(135deg, #0a0a0e 0%, #1a1a2e 50%, #0a0a0e 100%);
+        padding: 80px 0 40px;
+        text-align: center;
+        border-bottom: 1px solid #1a1a2e;
+    }
+    .deals-hero h1 {
+        font-size: clamp(28px, 5vw, 48px);
+        font-weight: 900;
+        color: #fff;
+        margin: 0 0 16px;
+        line-height: 1.1;
+    }
+    .deals-hero h1 span { color: #00ff88; }
+    .deals-hero .subtitle {
+        color: #999;
+        font-size: 18px;
+        margin: 0 0 28px;
+    }
+    .countdown-bar {
+        display: inline-flex;
+        gap: 16px;
+        background: rgba(0, 255, 136, 0.08);
+        border: 1px solid rgba(0, 255, 136, 0.3);
+        border-radius: 12px;
+        padding: 16px 32px;
+        margin-bottom: 8px;
+    }
+    .countdown-unit {
+        text-align: center;
+    }
+    .countdown-unit .num {
+        display: block;
+        font-size: 36px;
+        font-weight: 900;
+        color: #00ff88;
+        line-height: 1;
+        font-variant-numeric: tabular-nums;
+    }
+    .countdown-unit .label {
+        display: block;
+        font-size: 11px;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 4px;
+    }
+    .deals-grid {
+        display: grid;
+        gap: 32px;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .deal-card {
+        background: #0f0f1a;
+        border: 2px solid #1a1a2e;
+        border-radius: 16px;
+        padding: 36px 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        position: relative;
+        transition: border-color 0.3s;
+    }
+    .deal-card:hover { border-color: #00ff88; }
+    .deal-card.featured { border-color: #00ff88; }
+    .deal-badge {
+        position: absolute;
+        top: -14px;
+        left: 24px;
+        background: #ff3366;
+        color: #fff;
+        font-weight: 800;
+        font-size: 13px;
+        padding: 5px 16px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+    }
+    .deal-badge.green {
+        background: #00ff88;
+        color: #000;
+    }
+    .deal-info { flex: 1; min-width: 240px; }
+    .deal-info h2 {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 800;
+        margin: 0 0 8px;
+    }
+    .deal-info p {
+        color: #aaa;
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 0 0 16px;
+    }
+    .deal-pricing {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .deal-price {
+        font-size: 32px;
+        font-weight: 900;
+        color: #00ff88;
+    }
+    .deal-original {
+        font-size: 18px;
+        color: #666;
+        text-decoration: line-through;
+    }
+    .deal-save {
+        background: rgba(0, 255, 136, 0.12);
+        color: #00ff88;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .deal-cta { text-align: center; }
+    .deal-cta a {
+        display: inline-block;
+        background: #00ff88;
+        color: #000;
+        padding: 16px 36px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 17px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .deal-cta a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 255, 136, 0.3);
+    }
+    .deal-cta .note {
+        color: #666;
+        font-size: 12px;
+        margin: 10px 0 0;
+    }
+    .individual-section {
+        text-align: center;
+        padding: 48px 20px;
+    }
+    .individual-section h2 {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 800;
+        margin: 0 0 8px;
+    }
+    .individual-section .desc {
+        color: #888;
+        font-size: 15px;
+        margin: 0 0 8px;
+    }
+    .code-highlight {
+        display: inline-block;
+        background: #000;
+        color: #00ff88;
+        padding: 4px 14px;
+        border-radius: 6px;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin: 8px 0 20px;
+    }
+    .individual-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .ind-card {
+        background: #1a1a2e;
+        border: 1px solid #2a2a4a;
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: border-color 0.3s;
+    }
+    .ind-card:hover { border-color: #00ff88; }
+    .ind-card h3 {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 8px;
+    }
+    .ind-card .price {
+        color: #00ff88;
+        font-size: 22px;
+        font-weight: 900;
+        margin: 0 0 12px;
+    }
+    .ind-card a {
+        display: inline-block;
+        background: transparent;
+        border: 1px solid #00ff88;
+        color: #00ff88;
+        padding: 8px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .ind-card a:hover {
+        background: #00ff88;
+        color: #000;
+    }
+    .free-cta-section {
+        background: linear-gradient(135deg, #1a1a2e, #0f0f1a);
+        border: 2px solid #00ff88;
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 600px;
+        margin: 0 auto 48px;
+        text-align: center;
+    }
+    .free-cta-section h2 {
+        color: #00ff88;
+        font-size: 24px;
+        font-weight: 800;
+        margin: 0 0 8px;
+    }
+    .free-cta-section p {
+        color: #ccc;
+        font-size: 15px;
+        margin: 0 0 20px;
+    }
+    .free-cta-section a {
+        display: inline-block;
+        background: #00ff88;
+        color: #000;
+        padding: 14px 32px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 16px;
+    }
+    @media (max-width: 600px) {
+        .deal-card { padding: 28px 20px; }
+        .countdown-bar { gap: 12px; padding: 12px 20px; }
+        .countdown-unit .num { font-size: 28px; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">Empire Digital</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products/">Products</a></li>
+            <li><a href="/deals.html" class="active">Deals</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/checkout.html" class="nav-cta">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="deals-hero">
+    <div class="container">
+        <h1>Limited Time Deals — <span>This Week Only</span></h1>
+        <p class="subtitle">Grab these before they're gone. Prices go back up when the timer hits zero.</p>
+        <div class="countdown-bar" id="countdown">
+            <div class="countdown-unit">
+                <span class="num" id="cd-hours">48</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="countdown-unit">
+                <span class="num" id="cd-mins">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="countdown-unit">
+                <span class="num" id="cd-secs">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deals -->
+<section class="section">
+    <div class="container">
+        <div class="deals-grid">
+
+            <!-- Deal 1: Complete Empire Bundle -->
+            <div class="deal-card featured">
+                <div class="deal-badge green">Save $15</div>
+                <div class="deal-info">
+                    <h2>The Complete Empire Bundle</h2>
+                    <p>Every product we make in one package — AI Prompt Arsenal, Grinder Dashboard, Tax Kit, and Client Onboarding Template. The ultimate value pack for serious hustlers.</p>
+                    <div class="deal-pricing">
+                        <span class="deal-price">$29.99</span>
+                        <span class="deal-original">$44.96</span>
+                        <span class="deal-save">Save $15</span>
+                    </div>
+                </div>
+                <div class="deal-cta">
+                    <a href="https://buy.stripe.com/5kQ9AT4OOgr7dPogFu7N607">Get the Bundle</a>
+                    <p class="note">Instant delivery. 7-day money-back guarantee.</p>
+                </div>
+            </div>
+
+            <!-- Deal 2: Hustler's Starter Pack -->
+            <div class="deal-card">
+                <div class="deal-badge">Save $5</div>
+                <div class="deal-info">
+                    <h2>Hustler's Starter Pack</h2>
+                    <p>AI Prompt Arsenal + Grinder Dashboard bundled together. Everything you need to start your side hustle with AI-powered tools and a killer productivity system.</p>
+                    <div class="deal-pricing">
+                        <span class="deal-price">$19.99</span>
+                        <span class="deal-original">$24.98</span>
+                        <span class="deal-save">Save $5</span>
+                    </div>
+                </div>
+                <div class="deal-cta">
+                    <a href="https://buy.stripe.com/8x228r3KK8YF4eO0Gw7N606">Get the Starter Pack</a>
+                    <p class="note">Instant delivery. 7-day money-back guarantee.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Individual Products -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="individual-section">
+            <h2>Prefer to Pick & Choose?</h2>
+            <p class="desc">Grab any individual product at regular price — and use this code for 50% off:</p>
+            <div class="code-highlight">EMPIRE50</div>
+            <div class="individual-grid">
+                <div class="ind-card">
+                    <h3>AI Prompt Arsenal</h3>
+                    <div class="price">$14.99</div>
+                    <a href="/products/ai-prompt-arsenal.html">View Product</a>
+                </div>
+                <div class="ind-card">
+                    <h3>Grinder Dashboard</h3>
+                    <div class="price">$9.99</div>
+                    <a href="/products/grinder-dashboard.html">View Product</a>
+                </div>
+                <div class="ind-card">
+                    <h3>Tax Deadline Survival Kit</h3>
+                    <div class="price">$9.99</div>
+                    <a href="/products/tax-deadline-survival-kit.html">View Product</a>
+                </div>
+                <div class="ind-card">
+                    <h3>Client Onboarding Template</h3>
+                    <div class="price">$9.99</div>
+                    <a href="/products/notion-client-onboarding-template-freelancers.html">View Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Free Lead Magnet CTA -->
+<section class="section">
+    <div class="container">
+        <div class="free-cta-section">
+            <h2>Not Ready to Buy? No Problem.</h2>
+            <p>Get 10 free AI prompts that save freelancers 5+ hours per week. No credit card needed — just enter your email and download instantly.</p>
+            <a href="/free-prompts.html">Get 10 Free AI Prompts</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Empire Digital</h3>
+                <p>Premium digital products built for people who demand the best.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="/products/">All Products</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay in the Loop</h4>
+                <p>Get exclusive drops and early access.</p>
+                <form class="footer-form" action="https://formspree.io/f/xwvwndkd" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Empire Digital. All rights reserved. Built different.</p>
+        </div>
+    </div>
+</footer>
+<script src="/js/main.js?v=1775346836"></script>
+
+<script>
+// Countdown timer — 48 hours, resets when it hits zero
+(function() {
+    var DURATION = 48 * 60 * 60 * 1000; // 48 hours in ms
+    var KEY = 'deals_countdown_start';
+    var start = localStorage.getItem(KEY);
+    if (!start) {
+        start = Date.now();
+        localStorage.setItem(KEY, start);
+    } else {
+        start = parseInt(start, 10);
+    }
+
+    function update() {
+        var elapsed = Date.now() - start;
+        var remaining = DURATION - (elapsed % DURATION);
+
+        // Reset start time when timer completes a full cycle
+        if (elapsed >= DURATION) {
+            start = Date.now();
+            localStorage.setItem(KEY, start);
+            remaining = DURATION;
+        }
+
+        var totalSecs = Math.floor(remaining / 1000);
+        var hours = Math.floor(totalSecs / 3600);
+        var mins = Math.floor((totalSecs % 3600) / 60);
+        var secs = totalSecs % 60;
+
+        document.getElementById('cd-hours').textContent = hours < 10 ? '0' + hours : hours;
+        document.getElementById('cd-mins').textContent = mins < 10 ? '0' + mins : mins;
+        document.getElementById('cd-secs').textContent = secs < 10 ? '0' + secs : secs;
+    }
+
+    update();
+    setInterval(update, 1000);
+})();
+</script>
+</body>
+</html>

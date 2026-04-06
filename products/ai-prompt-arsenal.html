@@ -234,5 +234,41 @@
 <div style="background:#1a1a2e;padding:12px 14px;display:flex;justify-content:space-between;border-bottom:1px solid #2a2a4a;"><span style="color:#00ff88;font-weight:700;font-size:13px;">Empire Digital</span><span onclick="document.getElementById('chatWindow').style.display='none'" style="color:#666;cursor:pointer;font-size:18px;">&times;</span></div>
 <div style="padding:12px;color:#ccc;font-size:13px;line-height:1.5;">Got a question? Email us at <a href="mailto:jeromecrawford42@gmail.com" style="color:#00ff88;">jeromecrawford42@gmail.com</a> or use code <strong style="color:#00ff88;">EMPIRE50</strong> for 50% off!</div>
 </div></div>
+
+<!-- EXIT INTENT POPUP — Lead magnet capture -->
+<div id="exitPopup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;">
+    <div style="background:#0f0f1a;border:2px solid #00ff88;border-radius:16px;padding:40px;max-width:480px;width:90%;text-align:center;position:relative;font-family:Arial,sans-serif;">
+        <span onclick="document.getElementById('exitPopup').style.display='none';sessionStorage.setItem('exitShown','1')" style="position:absolute;top:12px;right:16px;color:#666;cursor:pointer;font-size:24px;">&#10005;</span>
+        <div style="font-size:40px;margin-bottom:12px;">&#127873;</div>
+        <h2 style="color:#00ff88;margin:0 0 10px;font-size:26px;font-weight:800;">Wait! Get 10 Free AI Prompts Before You Go</h2>
+        <p style="color:#ccc;margin:0 0 20px;font-size:15px;line-height:1.5;">Enter your email for instant download. These prompts save freelancers 5+ hours per week.</p>
+        <form action="https://formspree.io/f/xwvwndkd" method="POST" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <input type="email" name="email" placeholder="your@email.com" required style="background:#1a1a2e;border:1px solid #2a2a4a;color:#fff;padding:14px 20px;border-radius:8px;font-size:15px;width:100%;max-width:340px;outline:none;">
+            <input type="hidden" name="_source" value="exit_intent_lead_magnet">
+            <input type="hidden" name="_next" value="https://empiredigi.store/free-prompts.html">
+            <button type="submit" style="background:#00ff88;color:#000;border:none;padding:14px 36px;border-radius:8px;font-weight:800;cursor:pointer;font-size:16px;width:100%;max-width:340px;transition:transform 0.2s;">Get My Free Prompts</button>
+        </form>
+        <p style="color:#555;font-size:12px;margin:14px 0 0;">No spam. Unsubscribe anytime.</p>
+    </div>
+</div>
+<script>
+document.addEventListener('mouseout',function(e){
+    if(e.clientY<5&&!sessionStorage.getItem('exitShown')){
+        document.getElementById('exitPopup').style.display='flex';
+        sessionStorage.setItem('exitShown','1');
+    }
+});
+// Mobile: trigger on scroll up after 30 seconds
+var _exitTimer=setTimeout(function(){
+    var lastY=window.scrollY;
+    window.addEventListener('scroll',function(){
+        if(window.scrollY<lastY-100&&!sessionStorage.getItem('exitShown')){
+            document.getElementById('exitPopup').style.display='flex';
+            sessionStorage.setItem('exitShown','1');
+        }
+        lastY=window.scrollY;
+    });
+},30000);
+</script>
 </body>
 </html>

@@ -246,6 +246,8 @@ var stripeLinks = {
     'complete-empire-bundle': 'https://buy.stripe.com/5kQ9AT4OOgr7dPogFu7N607'
 };
 function redirectToStripe() {
+    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+    if (typeof ttq !== 'undefined') ttq.track('InitiateCheckout');
     var params = new URLSearchParams(window.location.search);
     var product = params.get('product');
     if (product && stripeLinks[product]) { window.location.href = stripeLinks[product]; return; }
@@ -253,6 +255,24 @@ function redirectToStripe() {
     try { cartItems = JSON.parse(localStorage.getItem('boss_cart') || '[]'); } catch(e) {}
     if (cartItems.length > 0 && stripeLinks[cartItems[0].slug]) { window.location.href = stripeLinks[cartItems[0].slug]; return; }
     window.location.href = stripeLinks['ai-prompt-arsenal'];
+}
+
+// AddToCart pixel events
+if (typeof Cart !== 'undefined') {
+    var items = Cart.getItems();
+    if (items.length > 0) {
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'AddToCart', {
+                content_name: items[0].name,
+                content_type: 'product',
+                value: items[0].price,
+                currency: 'USD'
+            });
+        }
+        if (typeof ttq !== 'undefined') {
+            ttq.track('AddToCart');
+        }
+    }
 }
 </script>
 
